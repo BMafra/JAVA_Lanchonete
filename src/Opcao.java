@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public abstract class Opcao extends Object{
+public abstract class Opcao implements Interface {
     private static ArrayList<Opcao> cardapio = new ArrayList<>();
     private int quantidade;
     private String descricao;
@@ -49,12 +49,12 @@ public abstract class Opcao extends Object{
         this.quantidade = quantidade;
     }
 
-    public static void inserir(Opcao opcao) {
+    public void inserir(Opcao opcao) {
         cardapio.add(opcao);
         reordenar();
     }
 
-    public static void remover(Opcao opcao) {
+    public void remover(Opcao opcao) {
         cardapio.remove(opcao);
         reordenar();
     }
