@@ -48,14 +48,14 @@ public abstract class Opcao implements Interface {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
-    public void inserir(Opcao opcao) {
-        cardapio.add(opcao);
+    @Override
+    public void inserir() {
+        cardapio.add(this);
         reordenar();
     }
-
-    public void remover(Opcao opcao) {
-        cardapio.remove(opcao);
+    @Override
+    public void remover() {
+        cardapio.remove(this);
         reordenar();
     }
 
