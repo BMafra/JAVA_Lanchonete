@@ -1,8 +1,13 @@
 import java.util.ArrayList;
-public class Pedido {
+
+public class Pedido implements Interface {
     private ArrayList<Opcao> pedido = new ArrayList<>();
-    public void adicionar(Opcao opcao){
+
+    @Override
+    public void inserir(){
         boolean existe = false;
+        Opcao opcao = Executavel.escolherOpcao();
+
         for (Opcao opcao1 : pedido){
             if(opcao.equals(opcao1)){
                 existe = true;
@@ -15,9 +20,12 @@ public class Pedido {
             pedido.add(opcao);
         }
     }
-    public void remover(Opcao opcao){
-        pedido.remove(opcao);
+
+    @Override
+    public void remover(){
+        pedido.remove(Executavel.escolherOpcao());
     }
+
     @Override
     public String toString(){
         double total = 0;

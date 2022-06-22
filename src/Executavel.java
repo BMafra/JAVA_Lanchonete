@@ -1,3 +1,5 @@
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Executavel {
@@ -23,6 +25,7 @@ public class Executavel {
                 4- Fazer pedido
                 5- Finalizar
                 >\040""");
+
         switch (sc.nextInt()) {
             case 1 -> coletarDados().inserir();
             case 2 -> System.out.print(Opcao.mostrarOpcoes());
@@ -39,6 +42,7 @@ public class Executavel {
     private static void fazerPedido() {
         Pedido pedido = new Pedido();
         int opcao;
+
         do {
             System.out.print("""
                     >>>>> FAÇA SEU PEDIDO <<<<<
@@ -48,13 +52,14 @@ public class Executavel {
                     4) Finalizar pedido
                     >\040""");
             opcao = sc.nextInt();
+
             switch (opcao) {
                 case 1 -> {
                     System.out.println(Opcao.mostrarOpcoes());
-                    pedido.adicionar(escolherOpcao());
+                    pedido.inserir();
                 }
                 case 2 -> System.out.println(pedido.toString());
-                case 3 -> pedido.remover(escolherOpcao());
+                case 3 -> pedido.remover();
                 case 4 -> {
                     System.out.println(pedido.toString());
                     System.out.println("Volte sempre!");
@@ -64,7 +69,7 @@ public class Executavel {
         } while (opcao != 4);
     }
 
-    private static Opcao escolherOpcao() {
+    public static Opcao escolherOpcao() {
         System.out.print("Informe a opção desejada: \n> ");
         return Opcao.procurarOpcao(sc.nextInt());
     }
@@ -77,10 +82,13 @@ public class Executavel {
                 3- Bebida
                 >\040""");
         int opcao = sc.nextInt();
+
         System.out.print("Informe a descrição: \n> ");
         String descricao = sc.next();
+
         System.out.print("Informe o preço: \n> R$ ");
         double preco = sc.nextDouble();
+
         switch (opcao) {
             case 1 -> {
                 System.out.print("Informe o peso (em quilos): \n> ");
@@ -105,10 +113,11 @@ public class Executavel {
         Lanche xtudo = new Lanche("X-Tudo", 18.0, 1.2);
         Lanche xburger = new Lanche("X-Burger", 10.0, 0.6);
         Lanche xbacon = new Lanche("X-Bacon", 15.0, 1.0);
-        xsalada.inserir();
-        xtudo.inserir();
-        xburger.inserir();
-        xbacon.inserir();
+        Collections.addAll(Opcao.cardapio, xsalada, xtudo, xburger, xbacon);
+//        xsalada.inserir();
+//        xtudo.inserir();
+//        xburger.inserir();
+//        xbacon.inserir();
 
         Bebida refri200 = new Bebida("Refrigerante",5.0,0.2);
         Bebida refri500 = new Bebida("Refrigerante",10.0,0.5);

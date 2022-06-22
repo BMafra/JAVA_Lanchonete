@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public abstract class Opcao implements Interface {
-    private static ArrayList<Opcao> cardapio = new ArrayList<>();
+    public static ArrayList<Opcao> cardapio = new ArrayList<>();
     private int quantidade;
     private String descricao;
     private double preco;
