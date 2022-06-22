@@ -5,20 +5,27 @@ public class Pedido implements Interface {
 
     @Override
     public void inserir(){
-        boolean existe = false;
-        Opcao opcao = Executavel.escolherOpcao();
+        Opcao escolha = Executavel.escolherOpcao();
 
-        for (Opcao opcao1 : pedido){
-            if(opcao.equals(opcao1)){
-                existe = true;
-                opcao1.setQuantidade(opcao1.getQuantidade()+1);
-                break;
-            }
+        if (pedido.contains(escolha)){
+            int posicao = pedido.indexOf(escolha);
+            Opcao opcao = pedido.get(posicao);
+            opcao.setQuantidade(opcao.getQuantidade()+1);
+        } else {
+            escolha.setQuantidade(1);
+            pedido.add(escolha);
         }
-        if (!existe) {
-            opcao.setQuantidade(1);
-            pedido.add(opcao);
-        }
+
+//        for (Opcao opcao1 : pedido){
+//            if(escolha.equals(opcao1)){
+//                opcao1.setQuantidade(opcao1.getQuantidade()+1);
+//                break;
+//            }
+//        }
+//        if (!existe) {
+//            escolha.setQuantidade(1);
+//            pedido.add(escolha);
+//        }
     }
 
     @Override

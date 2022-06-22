@@ -4,11 +4,13 @@ public abstract class Opcao implements Interface {
     private int quantidade;
     private String descricao;
     private double preco;
+
     public Opcao(String descricao, double preco) {
         this.quantidade = 0;
         this.descricao = descricao;
         this.preco = preco;
     }
+
     private static void reordenar() {
         ArrayList<Opcao> novoCardapio = new ArrayList<>();
         for (Opcao opcao: cardapio) {
@@ -48,11 +50,13 @@ public abstract class Opcao implements Interface {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
     @Override
     public void inserir() {
         cardapio.add(this);
         reordenar();
     }
+
     @Override
     public void remover() {
         cardapio.remove(this);

@@ -108,6 +108,7 @@ public class Executavel {
             default -> throw new OpcaoMenuInvalidaException();
         }
     }
+
     private static void addPadrao() {
         Lanche xsalada = new Lanche("X-Salada", 12.0, 0.8);
         Lanche xtudo = new Lanche("X-Tudo", 18.0, 1.2);
