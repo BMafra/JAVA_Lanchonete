@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pedido implements Interface {
-    private ArrayList<Opcao> pedido = new ArrayList<>();
+    private List<Opcao> pedido = new ArrayList<>();
 
     @Override
     public void inserir(){

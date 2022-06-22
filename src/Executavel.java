@@ -4,9 +4,12 @@ import java.util.Scanner;
 
 public class Executavel {
     private static Scanner sc = new Scanner(System.in);
+    static Interface i = new Pedido();
+    static Interface j = new Lanche("Dog", 10, 0.250);
 
     public static void main(String[] args) {
         addPadrao();
+
         do {
             try {
                 menuPrincipal();
